@@ -1,0 +1,117 @@
+@import '@/theme/index.sass';
+
+.aboutSec {
+  position: relative;
+
+  &::after {
+    content: url('@/assets/images/shapes/aboutUsSecBackground.png');
+    position: absolute;
+    inset-inline-start: 30px;
+    bottom: 100px;
+    z-index: -1;
+  }
+}
+
+.mainDesc {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: $headingMainColor;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.desc {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: $paragraphMainColor;
+  line-height: 242%;
+  margin-bottom: 2.5rem;
+}
+
+.link {
+  padding: 1rem 2rem;
+  height: 52px;
+  font-size: 1.6rem;
+  font-weight: 400;
+  width: 175px;
+}
+
+.pointsWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.point {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: $paragraphMainColor; 
+}
+
+.imagesWrapper {
+  position: relative;
+  padding-inline-end: 11px;
+  max-width: 585px;
+  margin: 0 auto;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 86%;
+    inset-inline-start: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: 11px solid $primaryColor;
+    border-radius: $mainBorderRadius;
+    z-index: -1;
+
+    @include xs {
+      height: 60%;
+    }
+  }
+
+  &::before {
+    width: 50%;
+    height: 75%;
+    content: '';
+    position: absolute;
+    inset-inline-end: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: $primaryColor;
+    border-radius: $mainBorderRadius;
+    z-index: -1;
+  }
+}
+
+.firstImage {
+  position: absolute;
+  top: 50%;
+  inset-inline-start: 0;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 297px;
+  border-radius: $mainBorderRadius;
+  overflow: hidden;
+
+  @include sm {
+    width: 40%;
+  }
+}
+
+.secondImage {
+  max-width: 338px;
+  margin-inline-start: auto;
+  border-radius: $mainBorderRadius;
+  overflow: hidden;
+
+  @include sm {
+    max-width: 70%;
+  }
+}

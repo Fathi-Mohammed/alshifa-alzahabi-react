@@ -1,0 +1,22 @@
+.swiper-pagination {
+  inset-inline-start: 0;
+  display: flex;
+  justify-content: flex-start;
+  bottom: 2rem !important;
+
+  @include sm {
+    justify-content: center;
+  }
+
+  .swiper-pagination-bullet {
+    width: 16px;
+    height: 16px;
+    background-color : transparent;
+    border: 1px solid $secondaryColor;
+    opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: $secondaryColor;
+  }
+}

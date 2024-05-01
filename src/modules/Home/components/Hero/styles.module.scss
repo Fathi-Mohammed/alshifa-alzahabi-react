@@ -1,0 +1,47 @@
+@import '@/theme/index.sass';
+
+.hero {
+  padding-top: 13.3rem;
+  background-color: $primaryColor;
+  background-image: url('@/assets/images/hero/background.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 800;
+  color: $headingMainColor;
+  margin-bottom: 2rem;
+
+  @include sm {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  @include xs {
+    font-size: 2.5rem;
+  }
+}
+
+.desc {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: $paragraphMainColor;
+  margin-bottom: 3rem;
+  line-height: 1.7;
+
+  @include sm { 
+    text-align: center;
+  }
+}
+
+.link {
+  padding: 1rem 2rem;
+  height: 52px;
+  font-size: 1.6rem;
+  font-weight: 400;
+  width: 175px;
+  
+}

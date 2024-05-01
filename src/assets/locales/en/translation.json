@@ -1,0 +1,14 @@
+{
+  "welcome": "Welcome",
+  "NotFound": "Page Not Found",
+  "Home": "Home",
+  "AboutUs": "About Us",
+  "Services": "Services",
+  "ContactUs": "Contact Us",
+  "login": "Login",
+  "signUp": "Sign Up",
+  "hero": {
+    "title": "Alshifa Alzahabi",
+    "desc": "This is an example of an English description. It can be changed in the translation file."
+  }
+}
