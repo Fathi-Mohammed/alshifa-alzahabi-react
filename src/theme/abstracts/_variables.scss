@@ -20,7 +20,7 @@ $mainPageBackground: #fff;
 // Input Styles
 // =========================================
 $inputPlaceholderColor: #1F1B20;
-$inputBackgroundColor: transparent;
+$inputBackgroundColor: rgba($secondaryColor , 0.02);
 $inputHeight: 54px;
 $inputFontSize: 1.4rem;
 $inputGreyBackgroundColor: #F1F1F1;

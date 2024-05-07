@@ -1,0 +1,19 @@
+@import '@/theme/index.sass';
+
+.authTitleWrapper {
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: $headingMainColor;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: $paragraphMainColor;
+  font-size: 1.7rem;
+  font-weight: 400;
+  margin: 0;
+}

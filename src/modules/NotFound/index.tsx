@@ -1,9 +1,15 @@
-const NotFound = () => {
-  return (
-    <div>
-      <h1>NotFound</h1>
-    </div>
-  )
-}
+import { useTranslation } from 'react-i18next';
+import styles from './styles.module.scss';
 
-export default NotFound
+
+const NotFound = () => {
+  const { t } = useTranslation();
+
+  return (
+    <section className={styles.section}>
+      <h1 className={styles.title}>{t('NotFound')}</h1>
+    </section>
+  );
+};
+
+export default NotFound;

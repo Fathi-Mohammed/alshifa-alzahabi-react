@@ -1,0 +1,44 @@
+.input {
+  height: 65px;
+  border: none;
+  background-color: $inputBackgroundColor;
+  border-radius: 10px;
+  outline: none;
+  width: 100%;
+  font-size: 1.4rem;
+  color: $headingMainColor;
+  padding: 20px 29px;
+  transition: 0.5s;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  @include xxs {
+    height: 48px;
+    margin-bottom: 10px;
+  }
+
+  &:focus,
+  &:hover {
+    border: 1px solid $primaryColor;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  &::placeholder {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: $inputPlaceholderColor;
+    opacity: 1;
+    transition: 0.5s;
+  }
+
+  &:focus {
+    &::placeholder {
+      opacity: 0;
+    }
+  }
+}

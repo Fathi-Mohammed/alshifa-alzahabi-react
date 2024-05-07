@@ -1,0 +1,21 @@
+@import '@/theme/index.sass';
+
+.link {
+  color: $headingMainColor !important;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.forgetLink {
+  text-decoration: none;
+  display: block;
+  color: $headingMainColor;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  margin-inline-start: auto;
+  width: fit-content;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

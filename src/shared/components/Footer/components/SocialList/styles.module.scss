@@ -1,0 +1,28 @@
+@import '@/theme/index.sass';
+
+.socialList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+.item {
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  background-color: rgba($primaryColor , 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+
+  &:hover {
+    background-color: $primaryColor;
+  }
+}
+
+.icon {
+  color: #fff;
+  font-size: 1.6rem;
+}

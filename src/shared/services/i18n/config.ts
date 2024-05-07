@@ -24,16 +24,9 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    // lng: 'ar',
     resources,
     fallbackLng: 'en',
     supportedLngs: Object.keys(supportedLngs),
-    debug: true,
-
-    detection: {
-    //   order: ['cookie', 'path', 'localStorage', 'subdomain'],
-      caches: ['cookie'],
-    },
 
     interpolation: {
       escapeValue: false,

@@ -20,14 +20,14 @@ export const ToolBar = ({ onClick} : props) => {
         <div className={styles.headerLinksWrapper}>
           <Link
             onClick={onClick}
-            to="/log-in"
+            to="/auth/sign-in"
             className={`${styles.headerLinks} ${styles.login}`}
           >
             {t('login')}
           </Link>
           <Link
             onClick={onClick}
-            to="/sign-up"
+            to="/auth/sign-up"
             className={`${styles.headerLinks} ${styles.signUp}`}
           >
             {t('signUp')}

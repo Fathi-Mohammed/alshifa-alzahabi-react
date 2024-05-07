@@ -1,9 +1,10 @@
-import { Container } from 'react-bootstrap';
-import styles from './styles.module.scss';
-import HeaderLogo from '@/assets/images/logo.png';
-import { Nav } from './components/Nav';
-import { FaBars } from 'react-icons/fa6';
 import { useState } from 'react';
+import { Container } from 'react-bootstrap';
+import { Nav } from './components/Nav';
+import HeaderLogo from '@/assets/images/logo.png';
+import { FaBars } from 'react-icons/fa6';
+import styles from './styles.module.scss';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -16,11 +17,11 @@ export const Header = () => {
     <header className={styles.header}>
       <Container>
         <div className={styles.headerContent}>
-          <div className={styles.logo}>
+          <Link to="/" className={styles.logo}>
             <figure>
               <img src={HeaderLogo} alt="logo" />
             </figure>
-          </div>
+          </Link>
 
           <Nav onClick={handleNavToggle} isNavOpen={isNavOpen} />
           <button onClick={handleNavToggle} className={styles.navToggle}>

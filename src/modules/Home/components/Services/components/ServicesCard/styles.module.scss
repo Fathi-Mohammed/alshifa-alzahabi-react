@@ -1,0 +1,66 @@
+@import '@/theme/index.sass';
+
+.servicesCard {
+  background-color: $greyColor;
+  border-radius: $mainBorderRadius;
+  padding: 5.5rem 3.5rem;
+  background-image: url('@/assets/images/shapes/servicesCardBackgrond.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  display: block;
+  text-decoration: none;
+  height: 100%;
+  transition: 0.5s;
+
+  .cardTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $headingMainColor;
+    display: block;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    &::before {
+      content: '';
+      width: 4px;
+      height: 30px;
+      background-color: $primaryColor;
+      display: block;
+      transition: 0.5s;
+    }
+  }
+
+  .cardDesc {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 238%;
+    margin-bottom: 2rem;
+    transition: 0.5s;
+  }
+
+  &:hover {
+    background-color: $primaryColor;
+
+    .cardTitle {
+      &::before {
+        background-color: #fff;
+      }
+    }
+
+    .cardDesc {
+      color: $headingMainColor;
+    }
+  }
+}
+
+
+.link {
+  padding: 1rem 2rem;
+  height: 52px;
+  font-size: 1.6rem;
+  font-weight: 400;
+  width: 175px;
+}

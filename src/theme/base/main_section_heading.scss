@@ -77,10 +77,10 @@
 
 .section_head_wrapper {
   position: relative;
-  margin-bottom: 15px;
+  margin-bottom: 3rem;
 
   @include xs {
-    margin-bottom: 5px;
+    margin-bottom: 1.5rem;
   }
 
   &.m_top_bottom {
