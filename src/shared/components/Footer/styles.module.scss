@@ -1,4 +1,4 @@
-@import '@/theme/index.sass';
+@import '@/theme/shared.scss';
 
 .footer {
   background-color: $secondaryColor;
@@ -12,6 +12,11 @@
   align-items: center;
   justify-content: space-between;
   gap: 10rem;
+
+  @include sm {
+    flex-direction: column;
+    gap: 3rem;
+  }
 }
 
 .logo {

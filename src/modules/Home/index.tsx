@@ -3,7 +3,7 @@ import { Hero } from './components/Hero';
 import { Services } from './components/Services';
 import { tabTitle } from '@/shared/utils/tabTitle';
 
-const Home = () => {
+export const Home = () => {
   
   tabTitle('الرئيسية');
 
@@ -15,5 +15,3 @@ const Home = () => {
     </>
   );
 };
-
-export default Home;

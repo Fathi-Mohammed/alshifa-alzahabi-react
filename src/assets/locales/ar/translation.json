@@ -16,5 +16,7 @@
   "fastLinks" : "روابط سريعة :",
   "loginSubtitle" : "من فضلك قم بإدخال بياناتك لتسجيل الدخول",
   "phoneNumber" : "رقم الجوال",
-  "password" : "كلمة المرور"
+  "password" : "كلمة المرور",
+  "forgetPassword" : "نسيت كلمة المرور ؟",
+  "blogQuestion" : "هل تم حل المشكلة الخاصة بك أم لا ؟"
 }

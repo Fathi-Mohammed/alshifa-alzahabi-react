@@ -1,0 +1,84 @@
+@import '@/theme/shared.scss';
+
+.blogRow {
+  margin-bottom: 10rem;
+}
+
+.quistionWrapper {
+  background-color: $primaryColor;
+  display: flex;
+  align-items: center;
+  padding: 2.8rem 8.5rem;
+  border-radius: $mainBorderRadius;
+  gap: 13rem;
+  margin-bottom: 10rem;
+}
+
+.logo {
+  max-width: 93px;
+  max-height: 70px;
+  filter: brightness(0);
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: $headingMainColor;
+}
+
+.radioWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 0.8rem;
+}
+
+.radioInput {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+
+  &:checked {
+    & ~ .customRadio {
+      // background-color: $secondaryColor;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.customRadio {
+  width: 20px;
+  height: 20px;
+  border: 1px solid $secondaryColor;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: $secondaryColor;
+    opacity: 0;
+    transition: 0.5s;
+  }
+}

@@ -1,0 +1,33 @@
+@import '@/theme/shared.scss';
+
+.card {
+  display: block;
+  text-decoration: none;
+  border: none;
+  padding: 1.5rem 1.2rem;
+  border-radius: $mainBorderRadius;
+  background-color: rgba($secondaryColor, 0.02);
+  
+  .title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: $headingMainColor;
+    margin: 1.5rem 0;
+  }
+  
+  .desc {
+    color: $paragraphMainColor;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.9;
+  }
+
+  &:hover {
+    text-decoration: none;
+
+    img {
+      transform: scale(1.1);
+    }
+  }
+}

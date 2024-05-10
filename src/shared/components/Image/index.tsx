@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import styles from './styles.module.scss';
 
-interface ImageProps {
+interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string;
   alt?: string;
   asp?: number;

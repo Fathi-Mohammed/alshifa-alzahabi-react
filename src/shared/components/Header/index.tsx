@@ -29,7 +29,10 @@ export const Header = () => {
           </button>
         </div>
       </Container>
-      <div onClick={handleNavToggle} className={`${styles.overlay} ${isNavOpen ? `${styles.active}` : ''}`}></div>
+      <div
+        onClick={handleNavToggle}
+        className={`${styles.overlay} ${isNavOpen ? `${styles.active}` : ''}`}
+      ></div>
     </header>
   );
 };

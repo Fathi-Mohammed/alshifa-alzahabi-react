@@ -1,4 +1,4 @@
-@import '@/theme/index.sass';
+@import '@/theme/shared.scss';
 
 .navLinks {
   display: grid;
@@ -7,6 +7,11 @@
   row-gap: 2rem;
   list-style: none;
   width: 100%;
+
+  @include sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
 
   a {
     color: #fff;

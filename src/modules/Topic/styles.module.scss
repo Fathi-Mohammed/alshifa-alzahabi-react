@@ -1,0 +1,23 @@
+@import '@/theme/shared.scss';
+
+.imgWrapper {
+  margin-bottom: 4rem;
+  border-radius: $mainBorderRadius;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: $headingMainColor;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.desc {
+  color: $paragraphMainColor;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin: 0;
+  line-height: 210%;
+}

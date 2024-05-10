@@ -1,4 +1,4 @@
-@import '@/theme/index.sass';
+@import '@/theme/shared.scss';
 
 .servicesCard {
   background-color: $greyColor;
@@ -62,5 +62,5 @@
   height: 52px;
   font-size: 1.6rem;
   font-weight: 400;
-  width: 175px;
+  width: 185px;
 }
