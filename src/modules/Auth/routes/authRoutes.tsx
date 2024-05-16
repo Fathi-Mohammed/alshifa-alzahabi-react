@@ -3,7 +3,7 @@ import { ForgetPassword , SignIn , SignUp , Validation , SetNewPassword  } from 
 
 export const AuthRoutes = () => {
   return (
-    <div style={{ paddingTop: '120px' , paddingBottom: '130px' }}>
+    <>
     <Routes>
       <Route path="/sign-in" element={<SignIn />} />
       <Route path="/sign-up" element={<SignUp />} />
@@ -11,6 +11,6 @@ export const AuthRoutes = () => {
       <Route path="/set-new-password" element={<SetNewPassword />} />
       <Route path="/validation" element={<Validation />} />
     </Routes>
-    </div>
+    </>
   );
 };

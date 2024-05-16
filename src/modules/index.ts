@@ -5,3 +5,5 @@ export { Services } from './Services';
 export { ContactUs } from './ContactUs';
 export { Blog } from './Blog';
 export { Topic } from './Topic';
+export { MultiStepForm } from './MultiStepForm';
+export { Auth } from './Auth';

@@ -1,0 +1,87 @@
+@import '@/theme/shared.scss';
+
+.steps {
+  @include xs {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  }
+  
+  span {
+    color: $headingMainColor !important;
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+}
+
+.content {
+  padding: 6rem 0;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: $headingMainColor;
+  margin-bottom: 1.5rem;
+}
+
+.input {
+  height: 199px !important;
+  resize: none;
+  padding: 1.5rem 2rem;
+  background-color: rgba($secondaryColor, 0.02);
+  border: 0;
+  font-size: 1.6rem;
+  
+  &::placeholder {
+    font-size: 1.6rem;
+    color: $headingMainColor;
+  }
+}
+
+.buttonsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.button {
+  height: 65px;
+  padding: 2.3rem 2rem;
+  border-radius: $mainBorderRadius;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: $headingMainColor;
+  outline: 0;
+  border: 1px solid transparent;
+  min-width: 188px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.nextBtn,
+.shareBtn {
+  background-color: $primaryColor;
+
+  &:hover {
+    background-color: rgba($primaryColor , 0.9);
+  }
+}
+
+.prevBtn {
+  background-color: rgba($secondaryColor , 0.1);
+
+  &:hover {
+    background-color: rgba($secondaryColor , 0.15);
+  }
+}
+
+.doneBtn {
+  background-color: rgba($redColor , 0.2);
+
+  &:hover {
+    background-color: rgba($redColor , 0.4);
+  }
+}

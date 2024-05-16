@@ -2,9 +2,17 @@ import { Container } from 'react-bootstrap';
 import styles from './styles.module.scss';
 import { FeatureCard } from './components/FeatureCard';
 
-import type { Idata } from '../../index';
+type Idata = {
+  id: number;
+  icon: string;
+  title: string;
+  content: string;
+};
 
-export const Features = ({ data } : { data: Idata[] }) => {
+type Iprops = {
+  data: Idata[];
+}
+export const Features = ({ data } : Iprops) => {
   return (
     <section className={`default_section ${styles.featuresSection}`}>
       <Container>

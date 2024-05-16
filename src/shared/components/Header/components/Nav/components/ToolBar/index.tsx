@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import styles from './styles.module.scss';
 import { Link } from 'react-router-dom';
 import { AiOutlineGlobal } from 'react-icons/ai';
+import { useLanguage } from '@/shared/hooks/useLanguage';
 
 type props = {
   onClick: () => void;
@@ -9,9 +10,12 @@ type props = {
 
 export const ToolBar = ({ onClick} : props) => {
   const { t, i18n } = useTranslation();
+  const { changeLanguage } = useLanguage();
+
 
   const handleLangButtonClick = () => {
     i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en');
+    changeLanguage(i18n.language === 'en' ? 'ar' : 'en');
     onClick();
   };
   return (

@@ -2,9 +2,12 @@ import { Col, Container, Row } from 'react-bootstrap';
 import styles from './styles.module.scss';
 import { useTranslation } from 'react-i18next';
 import { ServicesCard } from './components/ServicesCard';
+import { tabTitle } from '@/shared/utils/tabTitle';
 
 export const Services = () => {
   const { t } = useTranslation();
+  tabTitle(t("Services"));
+
 
   return (
     <section className={`${styles.services} default_section`}>

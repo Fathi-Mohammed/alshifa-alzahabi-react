@@ -5,7 +5,7 @@ import { tabTitle } from '@/shared/utils/tabTitle';
 export const ContactUs = () => {
   const { t } = useTranslation();
 
-  tabTitle(t('contactUsSectionTitle'));
+  tabTitle(t('ContactUs'));
 
   return (
     <main className={`${styles.contactUsSection} default_page `}>
@@ -24,7 +24,7 @@ export const ContactUs = () => {
             <input className='input' type="number" placeholder={t('phoneNumber')} />
             <input className='input' type="email" placeholder={t('email')} />
             <textarea className='input textarea' placeholder={t('message')}></textarea>
-            <button className='link__ primary__ main_rounded__ half_width center'>ارسال</button>
+            <button className='link__ primary__ main_rounded__ half_width center'>{t('send')}</button>
           </div>
         </form>
       </Container>

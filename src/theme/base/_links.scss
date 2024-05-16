@@ -10,7 +10,7 @@
   text-decoration: none;
   gap: 10px;
   height: 54px;
-  color: #fff;
+  color: $headingMainColor;
   font-weight: 400;
   font-size: 1.6rem;
   transition: 0.5s;
@@ -27,7 +27,7 @@
 
   &:hover {
     text-decoration: none;
-    color: #fff;
+    color: $headingMainColor;
   }
 
   &.default_cursor {

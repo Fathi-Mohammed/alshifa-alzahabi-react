@@ -7,6 +7,9 @@ import App from './App';
 import './theme/index.scss';
 import '@/shared/services/i18n/config.ts';
 import { ScrollToTop } from '@/shared/components/ScrollToTop';
+import { ConfigProvider } from 'antd';
+import { antTheme } from './theme/antTheme';
+import { LanguageProvider } from './shared/context/languageContext';
 
 const queryClient = new QueryClient();
 
@@ -14,12 +17,16 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <App />
-        <ScrollToTop />
-        <ReactQueryDevtools
-          initialIsOpen={false}
-          buttonPosition="bottom-right"
-        />
+        <ConfigProvider theme={antTheme}>
+          <LanguageProvider>
+            <App />
+          </LanguageProvider>
+          <ScrollToTop />
+          <ReactQueryDevtools
+            initialIsOpen={false}
+            buttonPosition="bottom-right"
+          />
+        </ConfigProvider>
       </QueryClientProvider>
     </BrowserRouter>
   </React.StrictMode>,

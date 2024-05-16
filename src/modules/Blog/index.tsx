@@ -4,9 +4,12 @@ import logo from '@/assets/images/logo.png';
 
 import styles from './styles.module.scss';
 import { ProblemCard } from './components/ProblemCard';
+import { tabTitle } from '@/shared/utils/tabTitle';
 
 export const Blog = () => {
   const { t } = useTranslation();
+  tabTitle(t("Blog"));
+
 
   const data = [
     {
@@ -63,7 +66,6 @@ export const Blog = () => {
 
         <div className="page_head_wrapper">
           <h2 className="page_main_title__">{t('newSolvedTopics')}</h2>
-          <p className="page_sub_title__">{t('newSolvedTopicsSubTitle')}</p>
         </div>
         
 

@@ -1,17 +1,38 @@
 @import '@/theme/shared.scss';
 
 .navLinks {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 12rem;
-  row-gap: 2rem;
+  row-gap: 2rem !important;
   list-style: none;
   width: 100%;
 
-  @include sm {
-    grid-template-columns: repeat(2, 1fr);
+  @include md {
+    gap: 3rem;
   }
 
+  @include md {
+    gap: 6rem;
+    justify-content: center;
+  }
+
+  @include xs {
+    gap: 2rem;
+  }
+
+  li {
+    width: calc(100% / 3 - 80px);
+
+    @include md {
+      width: calc(100% / 3 - 3px);
+    }
+
+    @include sm {
+      width: fit-content;
+    }
+  }
 
   a {
     color: #fff;
@@ -21,6 +42,7 @@
     text-decoration: none;
     display: flex;
     align-items: center;
+    flex-shrink: 0;
     transition: 0.5s;
 
     &::before {
@@ -32,11 +54,18 @@
       border-radius: 50%;
       border: 1px solid #fff;
       margin-inline-end: 0.5rem;
+      flex-shrink: 0;
       transition: 0.5s;
     }
 
     &:hover {
-      padding-inline-start: 0.5rem;
+      opacity: 1;
+    }
+  }
+
+  &:has(a:hover) {
+    a:not(:hover) {
+      opacity: 0.5;
     }
   }
 }

@@ -6,11 +6,26 @@ import PointShape from '@/assets/images/shapes/aboutUsPointShape.svg';
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa6';
 import { Image } from '@/shared/components';
-import AboutUsMainImgOne from '@/assets/images/aboutUs/aboutUsMainImgOne.jpg';
-import AboutUsMainImgTwo from '@/assets/images/aboutUs/aboutUsMainImgTwo.jpg';
+type Ifeatures = {
+  id: number;
+  title: string;
+};
 
-export const AboutUs = () => {
+type Idata = {
+  imageOne: string;
+  imageTwo: string;
+  title: string;
+  content: string;
+  features: Ifeatures[];
+};
+type Iprops = {
+  data?: Idata;
+};
+
+export const AboutUs = ({ data }: Iprops) => {
   const { t } = useTranslation();
+  const { imageOne, imageTwo, title, content, features } = data || {};
+  
   return (
     <section className={`${styles.aboutSec} default_section`}>
       <Container>
@@ -21,50 +36,32 @@ export const AboutUs = () => {
                 {t('aboutUsSectionTitle')}
               </h2>
             </div>
-            <p className={styles.mainDesc}>
-              لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل
-              ليتصور طريقه وضع النصوص بالتصاميم
-            </p>
-            <p className={styles.desc}>
-              لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل
-              ليتصور طريقه وضع وضع النصوص النهائية المطلوبة للتصميم ويقول البعض
-              ان وضع النصوص التجريبية بالتص العام 45 قبل الميلاد. من كتاب “حول
-              أقاصي الخير والشر”
-            </p>
+            <p className={styles.mainDesc}>{title}</p>
+            <p className={styles.desc}>{content}</p>
             <div className={styles.pointsWrapper}>
-              <div className={styles.point}>
-                <img src={PointShape} alt="" />
-                لوريم ايبسوم هو نموذج افتراضي يوضع
-              </div>
-              <div className={styles.point}>
-                <img src={PointShape} alt="" />
-                لوريم ايبسوم هو نموذج افتراضي يوضع
-              </div>
-              <div className={styles.point}>
-                <img src={PointShape} alt="" />
-                لوريم ايبسوم هو نموذج افتراضي يوضع
-              </div>
-              <div className={styles.point}>
-                <img src={PointShape} alt="" />
-                لوريم ايبسوم هو نموذج افتراضي يوضع
-              </div>
+              {features?.map((item) => (
+                <div key={item.id} className={styles.point}>
+                  <img src={PointShape} alt="" />
+                  <p>{item.title}</p>
+                </div>
+              ))}
             </div>
             <Link
               className={`link__ secondary__ main_rounded__ center_sm outline__ icon_dir ${styles.link}`}
               to="/about-us"
             >
-              تعرف علينا أكثر
+              {t('knowMoreAboutUs')}
               <FaArrowLeft />
             </Link>
           </Col>
           <Col lg={6}>
             <div className={styles.imagesWrapper}>
               <div className={styles.firstImage}>
-                <Image src={AboutUsMainImgOne} asp={122.2222} />
+                <Image src={imageOne || ''} asp={122.2222} />
               </div>
 
               <div className={styles.secondImage}>
-                <Image src={AboutUsMainImgTwo} asp={142.307692} />
+                <Image src={imageTwo || ''} asp={142.307692} />
               </div>
             </div>
           </Col>

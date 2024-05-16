@@ -8,16 +8,18 @@ module.exports = {
     },
   },
   extends: [
-    // 'airbnb',
-    // 'airbnb/hooks',
-    // 'airbnb-typescript',
+    'airbnb',
+    'airbnb/hooks',
+    'airbnb-typescript',
     'plugin:@typescript-eslint/recommended',
-    // 'prettier',
-    // 'prettier/@typescript-eslint',
-    // 'plugin:prettier/recommended',
+    'prettier',
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended',
   ],
   plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier'],
   rules: {
     'react/react-in-jsx-scope': 0,
+    "@typescript-eslint/no-explicit-any": "off"
+
   },
 };

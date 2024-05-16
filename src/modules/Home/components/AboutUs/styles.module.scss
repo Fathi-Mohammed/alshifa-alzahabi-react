@@ -99,6 +99,8 @@
   width: 297px;
   border-radius: $mainBorderRadius;
   overflow: hidden;
+  z-index: 1;
+  border: 10px solid #fff;
 
   @include sm {
     width: 40%;

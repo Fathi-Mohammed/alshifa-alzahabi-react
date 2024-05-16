@@ -2,9 +2,23 @@ import { Col, Container, Row } from 'react-bootstrap';
 import styles from './styles.module.scss';
 import { useTranslation } from 'react-i18next';
 import { ServicesCard } from './components/ServicesCard';
+import { PaymentModal } from './components/PaymentModal';
+import { useState } from 'react';
 
-export const Services = () => {
+type data = {
+  id: number;
+  title: string;
+  content: string;
+};
+
+type Iprops = {
+  data: data[]
+}
+
+export const Services = ({ data } : Iprops) => {
   const { t } = useTranslation();
+  const [modalVisible, setModalVisible] = useState(false);
+  const isPayed = false;
 
   return (
     <section className={`${styles.services} default_section`}>
@@ -13,42 +27,17 @@ export const Services = () => {
           <h2 className="section_main_title__">{t('servicesSectionTitle')}</h2>
         </div>
         <Row className="row_modify with_row_gap">
-          <Col lg={6}>
-            <ServicesCard
-              title="حل مشكـــــــــلات"
-              desc="لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل
-                    ليتصور طريقه وضع وضع النصوص النهائية المطلوبة للتصميم ويقول
-                    البعض ان وضع النصوص التجريبية بالتص العام 45 قبل الميلاد. من
-                    كتاب “حول أقاصي الخير والشر” "
-            />
-          </Col>
-          <Col lg={6}>
-            <ServicesCard
-              title="حل مشكـــــــــلات"
-              desc="لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل
-                    ليتصور طريقه وضع وضع النصوص النهائية المطلوبة للتصميم ويقول"
-            />
-          </Col>
-          <Col lg={6}>
-            <ServicesCard
-              title="حل مشكـــــــــلات"
-              desc="لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل
-                    ليتصور طريقه وضع وضع النصوص النهائية المطلوبة للتصميم ويقول
-                    البعض ان وضع النصوص التجريبية بالتص العام 45 قبل الميلاد. من
-                    كتاب “حول أقاصي الخير والشر” "
-            />
-          </Col>
-          <Col lg={6}>
-            <ServicesCard
-              title="حل مشكـــــــــلات"
-              desc="لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل
-                    ليتصور طريقه وضع وضع النصوص النهائية المطلوبة للتصميم ويقول
-                    البعض ان وضع النصوص التجريبية بالتص العام 45 قبل الميلاد. من
-                    كتاب “حول أقاصي الخير والشر” "
-            />
-          </Col>
+          {data.map((item , index) => (
+            <Col key={index} lg={6}>
+              <ServicesCard data={item} isPayed={isPayed} setModalVisible={setModalVisible} />
+            </Col>
+          ))}
         </Row>
       </Container>
+      <PaymentModal
+        visible={modalVisible}
+        onCancel={() => setModalVisible(false)}
+      />
     </section>
   );
 };

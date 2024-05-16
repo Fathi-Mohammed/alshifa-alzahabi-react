@@ -8,12 +8,12 @@ export const NavLinks = () => {
     <ul className={styles.navLinks}>
       <li>
         <Link to="/">
-          {t('home')}
+          {t('Home')}
         </Link>
       </li>
       <li>
         <Link to="/">
-          {t('about-us')}
+          {t('AboutUs')}
         </Link>
       </li>
       <li>
@@ -28,7 +28,7 @@ export const NavLinks = () => {
       </li>
       <li>
         <Link to="/contact-us">
-          {t('contactUs')}
+          {t('ContactUs')}
         </Link>
       </li>
       <li>

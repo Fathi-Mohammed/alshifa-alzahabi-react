@@ -1,16 +1,23 @@
 import styles from './styles.module.scss';
-import Icon from '@/assets/images/shapes/features_icon_1.svg';
 
-import type {Idata} from '../../../../index';
+type Idata = {
+  id? : number;
+  icon: string;
+  title: string;
+  content: string;
+};
 
-export const FeatureCard = ({ data: { title, desc } }: { data: Idata }) => {
+type Iprops = {
+  data: Idata
+}
+export const FeatureCard = ({ data: { icon, title, content } } : Iprops ) => {
   return (
     <div className={styles.featureCard}>
       <div className={styles.iconWrapper}>
-        <img src={Icon} alt="" />
+        <img src={icon} alt="" />
       </div>
       <h3 className={styles.title}>{title}</h3>
-      <p className={styles.desc}>{desc}</p>
+      <p className={styles.desc}>{content}</p>
     </div>
   );
 };
