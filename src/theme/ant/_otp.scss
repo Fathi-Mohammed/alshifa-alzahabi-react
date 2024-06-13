@@ -1,0 +1,19 @@
+.ant-otp {
+  display: flex;
+  align-items: center;
+  // flex-direction: row-reverse;
+  // justify-content: flex-end;
+  margin-bottom: 2rem;
+
+  .ant-input {
+    height: 6.3rem !important;
+    width: 6.3rem !important;
+
+    &:not([value='']) {
+      background-color: $secondaryColor !important;
+      color: #fff !important;
+      font-size: 2rem !important;
+      border: $secondaryColor !important;
+    }
+  }
+}

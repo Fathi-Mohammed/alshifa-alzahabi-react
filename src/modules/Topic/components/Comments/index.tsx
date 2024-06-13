@@ -1,11 +1,20 @@
-import { CommentsForm } from "./CommentsForm"
-import { CommentsWrapper } from "./CommentsWrapper"
+import React from 'react';
+import { CommentsForm } from './CommentsForm';
+import { CommentsWrapper } from './CommentsWrapper';
+import { Loader } from '@/shared/components';
 
-export const Comments = () => {
+type Props = {
+  isLoading: boolean;
+  comments: any;
+  refetch: any;
+};
+
+export const Comments: React.FC<Props> = ({ refetch, isLoading, comments }) => {
+  if (isLoading) return <Loader visible={isLoading} />;
   return (
     <>
-      <CommentsForm />
-      <CommentsWrapper />
+      <CommentsForm refetch={refetch} />
+      <CommentsWrapper comments={comments} />
     </>
-  )
-}
+  );
+};

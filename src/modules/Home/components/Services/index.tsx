@@ -1,24 +1,15 @@
-import { Col, Container, Row } from 'react-bootstrap';
-import styles from './styles.module.scss';
 import { useTranslation } from 'react-i18next';
+import { Col, Container, Row } from 'react-bootstrap';
 import { ServicesCard } from './components/ServicesCard';
-import { PaymentModal } from './components/PaymentModal';
-import { useState } from 'react';
+import type { services } from '@/shared/model/Home';
+import styles from './styles.module.scss';
 
-type data = {
-  id: number;
-  title: string;
-  content: string;
+type props = {
+  data: services[];
 };
 
-type Iprops = {
-  data: data[]
-}
-
-export const Services = ({ data } : Iprops) => {
+export const Services = ({ data }: props) => {
   const { t } = useTranslation();
-  const [modalVisible, setModalVisible] = useState(false);
-  const isPayed = false;
 
   return (
     <section className={`${styles.services} default_section`}>
@@ -27,17 +18,13 @@ export const Services = ({ data } : Iprops) => {
           <h2 className="section_main_title__">{t('servicesSectionTitle')}</h2>
         </div>
         <Row className="row_modify with_row_gap">
-          {data.map((item , index) => (
-            <Col key={index} lg={6}>
-              <ServicesCard data={item} isPayed={isPayed} setModalVisible={setModalVisible} />
+          {data?.map((item: services) => (
+            <Col key={item.id} lg={6}>
+              <ServicesCard data={item} />
             </Col>
           ))}
         </Row>
       </Container>
-      <PaymentModal
-        visible={modalVisible}
-        onCancel={() => setModalVisible(false)}
-      />
     </section>
   );
 };

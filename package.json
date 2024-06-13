@@ -1,7 +1,7 @@
 {
-  "name": "test-project",
+  "name": "alshifa-alzahabi",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -41,11 +41,13 @@
     "react-icons": "^5.1.0",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.22.3",
+    "react-toastify": "^10.0.5",
     "sass": "^1.75.0",
     "swiper": "^11.1.1",
     "typescript-eslint": "^7.8.0"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20.12.7",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
@@ -59,6 +61,7 @@
     "prettier": "^3.2.5",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
-    "vite-plugin-imp": "^2.4.0"
+    "vite-plugin-imp": "^2.4.0",
+    "vite-plugin-svgr": "^4.2.0"
   }
 }

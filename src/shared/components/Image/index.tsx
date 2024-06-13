@@ -1,5 +1,6 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './styles.module.scss';
+import ImagePlaceholder from '@/assets/images/imagePlaceholder.png';
 
 interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string;
@@ -8,19 +9,25 @@ interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   center?: boolean;
 }
 
-export const Image = ({ src, alt, asp ,center }: ImageProps) => {
+export const Image: React.FC<ImageProps> = ({ src, alt, asp, center }) => {
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    const options = {};
+    const options = {
+      // threshold: 0.1,
+    };
 
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && entry.target === imgRef.current) {
           const img = entry.target as HTMLImageElement;
-          img.src = src;
-          img.parentElement?.classList.remove('loading');
-          img.parentElement?.classList.add('loaded');
+          img.src = src || ImagePlaceholder;
+          img.onload = () => {
+            img.style.opacity = '1';
+            img.style.filter = 'blur(0px)';
+            img.parentElement?.classList.remove(styles.loading);
+            img.parentElement?.classList.add(styles.loaded);
+          };
           observer.unobserve(img);
         }
       });
@@ -41,7 +48,7 @@ export const Image = ({ src, alt, asp ,center }: ImageProps) => {
 
   return (
     <figure
-      className={`${styles.figure__} ${asp ? styles.asp__ : ''} loading ${center ? styles.center : ''}`}
+      className={`${styles.figure} ${asp ? styles.asp : ''} ${styles.loading} ${center ? styles.center : ''}`}
       style={asp ? { paddingBottom: `${asp}%` } : {}}
     >
       <img ref={imgRef} alt={alt} />

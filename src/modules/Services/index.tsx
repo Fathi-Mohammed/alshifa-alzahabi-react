@@ -1,14 +1,21 @@
-import { Col, Container, Row } from 'react-bootstrap';
-import styles from './styles.module.scss';
 import { useTranslation } from 'react-i18next';
+import { Col, Container, Row } from 'react-bootstrap';
 import { ServicesCard } from './components/ServicesCard';
-import { tabTitle } from '@/shared/utils/tabTitle';
+import type { services } from '@/shared/model/Home';
+import styles from './styles.module.scss';
+import useApi from '@/shared/hooks/useApi';
+import { Loader } from '@/shared/components';
 
 export const Services = () => {
   const { t } = useTranslation();
-  tabTitle(t("Services"));
 
+  const { data, isLoading, isSuccess }: any = useApi.get(
+    import.meta.env.VITE_SERVICES,
+  );
 
+  if (isLoading) {
+    return <Loader visible={isLoading} />;
+  }
   return (
     <section className={`${styles.services} default_section`}>
       <Container>
@@ -16,40 +23,12 @@ export const Services = () => {
           <h2 className="section_main_title__">{t('servicesSectionTitle')}</h2>
         </div>
         <Row className="row_modify with_row_gap">
-          <Col lg={6}>
-            <ServicesCard
-              title="حل مشكـــــــــلات"
-              desc="لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل
-                    ليتصور طريقه وضع وضع النصوص النهائية المطلوبة للتصميم ويقول
-                    البعض ان وضع النصوص التجريبية بالتص العام 45 قبل الميلاد. من
-                    كتاب “حول أقاصي الخير والشر” "
-            />
-          </Col>
-          <Col lg={6}>
-            <ServicesCard
-              title="حل مشكـــــــــلات"
-              desc="لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل
-                    ليتصور طريقه وضع وضع النصوص النهائية المطلوبة للتصميم ويقول"
-            />
-          </Col>
-          <Col lg={6}>
-            <ServicesCard
-              title="حل مشكـــــــــلات"
-              desc="لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل
-                    ليتصور طريقه وضع وضع النصوص النهائية المطلوبة للتصميم ويقول
-                    البعض ان وضع النصوص التجريبية بالتص العام 45 قبل الميلاد. من
-                    كتاب “حول أقاصي الخير والشر” "
-            />
-          </Col>
-          <Col lg={6}>
-            <ServicesCard
-              title="حل مشكـــــــــلات"
-              desc="لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل
-                    ليتصور طريقه وضع وضع النصوص النهائية المطلوبة للتصميم ويقول
-                    البعض ان وضع النصوص التجريبية بالتص العام 45 قبل الميلاد. من
-                    كتاب “حول أقاصي الخير والشر” "
-            />
-          </Col>
+          {isSuccess &&
+            data?.data?.map((item: services) => (
+              <Col key={item.id} lg={6}>
+                <ServicesCard data={item} />
+              </Col>
+            ))}
         </Row>
       </Container>
     </section>

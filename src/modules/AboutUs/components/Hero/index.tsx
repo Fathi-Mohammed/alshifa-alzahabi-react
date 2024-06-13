@@ -11,7 +11,7 @@ type Ifeatures = {
 };
 
 type Idata = {
-  imageOne: string;
+  image: string;
   imageTwo: string;
   title: string;
   content: string;
@@ -22,7 +22,8 @@ type Iprops = {
   data: Idata;
 };
 
-export const Hero = ({ data: { imageOne, imageTwo, title, content, features } }: Iprops) => {
+export const Hero = ({ data }: Iprops) => {
+  const { image, imageTwo, title, content, features } = data || {};
   const { t } = useTranslation();
   return (
     <main className={`${styles.aboutSec} default_section`}>
@@ -48,7 +49,7 @@ export const Hero = ({ data: { imageOne, imageTwo, title, content, features } }:
           <Col lg={6}>
             <div className={styles.imagesWrapper}>
               <div className={styles.firstImage}>
-                <Image src={imageOne || ''} asp={122.2222} />
+                <Image src={image || ''} asp={122.2222} />
               </div>
 
               <div className={styles.secondImage}>

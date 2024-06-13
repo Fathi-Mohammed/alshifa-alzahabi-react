@@ -1,0 +1,18 @@
+@import '@/theme/shared.scss';
+
+.label {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: $headingMainColor;
+  margin-bottom: 1rem;
+
+  &:not(:first-child) {
+    margin-top: 2rem;
+  }
+}
+
+.textarea {
+  height: 116px !important;
+  resize: none !important;
+}

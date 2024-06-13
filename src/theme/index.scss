@@ -1,8 +1,11 @@
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../node_modules/react-toastify/scss/main.scss';
 
 @import './abstracts/variables.scss';
 @import './abstracts/mixins.scss';
 @import './abstracts/functions.scss';
+
+@import './ant/otp';
 
 @import './base/base.scss';
 @import './base/fonts.scss';

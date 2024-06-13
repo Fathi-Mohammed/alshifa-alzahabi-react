@@ -1,33 +1,20 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import logo from '@/assets/images/logo.png';
-
-import styles from './styles.module.scss';
 import { ProblemCard } from './components/ProblemCard';
 import { tabTitle } from '@/shared/utils/tabTitle';
+import logo from '@/assets/images/logo.png';
+import styles from './styles.module.scss';
+import useApi from '@/shared/hooks/useApi';
+import { SolvedSection } from './components/SolvedSection';
 
 export const Blog = () => {
   const { t } = useTranslation();
-  tabTitle(t("Blog"));
+  tabTitle(t('Blog'));
 
+  const { data, isLoading }: any = useApi.get(
+    import.meta.env.VITE_FORUMS + '?is_solved=0',
+  );
 
-  const data = [
-    {
-      id: 1,
-      title: 'مشكلة عائلية',
-      desc: 'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم إذا كنت تحتاج',
-    },
-    {
-      id: 2,
-      title: 'مشكلة عائلية',
-      desc: 'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم إذا كنت تحتاج',
-    },
-    {
-      id: 3,
-      title: 'مشكلة عائلية',
-      desc: 'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم إذا كنت تحتاج',
-    },
-  ]
   return (
     <main className={`${styles.blogSection} default_page `}>
       <Container>
@@ -37,11 +24,12 @@ export const Blog = () => {
         </div>
 
         <Row className={styles.blogRow}>
-          {data.map((item) => (
-            <Col lg={4}>
-              <ProblemCard data={item} />
-            </Col>
-          ))}
+          {!isLoading &&
+            data?.data?.map((item) => (
+              <Col key={item.id} lg={4}>
+                <ProblemCard data={item} />
+              </Col>
+            ))}
         </Row>
 
         <div className={styles.quistionWrapper}>
@@ -50,32 +38,29 @@ export const Blog = () => {
             <h4 className={styles.title}>{t('blogQuestion')}</h4>
             <div className={styles.radioWrapper}>
               <label className={styles.radioLabel} htmlFor="yes">
-                <input className={styles.radioInput} type="radio" name="radio" id="yes" />
+                <input
+                  className={styles.radioInput}
+                  type="radio"
+                  name="radio"
+                  id="yes"
+                />
                 <div className={styles.customRadio}></div>
                 {t('yes')}
               </label>
               <label className={styles.radioLabel} htmlFor="no">
-                <input className={styles.radioInput} type="radio" name="radio" id="no" />
+                <input
+                  className={styles.radioInput}
+                  type="radio"
+                  name="radio"
+                  id="no"
+                />
                 <div className={styles.customRadio}></div>
                 {t('no')}
               </label>
             </div>
           </div>
         </div>
-
-
-        <div className="page_head_wrapper">
-          <h2 className="page_main_title__">{t('newSolvedTopics')}</h2>
-        </div>
-        
-
-        <Row>
-          {data.map((item) => (
-            <Col lg={4}>
-              <ProblemCard data={item} />
-            </Col>
-          ))}
-        </Row>
+        <SolvedSection />
       </Container>
     </main>
   );

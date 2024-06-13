@@ -1,0 +1,82 @@
+@import '@/theme/shared.scss';
+
+.uploadLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border: 1px dashed $borderColor;
+  border-radius: 3rem;
+  cursor: pointer;
+  height: 30rem;
+}
+
+.icon {
+  font-size: 4rem;
+  color: $borderColor;
+}
+
+.title {
+  margin-top: 1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: $headingMainColor;
+}
+
+.uploaded {
+  border: 1px solid transparent;
+  background-color: $borderColor;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+
+  .icon {
+    position: absolute;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    z-index: 1;
+    opacity: 0;
+    filter: blur(5px);
+    transition: all 0.5s ease;
+  }
+
+  .title {
+    display: none;
+  }
+
+  figure {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      filter: blur(5px);
+      transition: all 0.5s ease;
+    }
+  }
+
+  &:hover {
+    .icon {
+      opacity: 1;
+      filter: blur(0px);
+    }
+
+    figure {
+      &::after {
+        opacity: 1;
+        filter: blur(0px);
+      }
+    }
+  }
+}

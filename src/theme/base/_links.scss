@@ -139,7 +139,6 @@
     min-width: 183px;
     max-width: 183px;
   }
-  
 
   // ===================================================================
   // Margin
@@ -331,6 +330,20 @@
     &:hover {
       color: $primaryColor;
       text-decoration: underline;
+    }
+  }
+
+  &.modalButton {
+    background-color: $primaryColor;
+    border-radius: $mainBorderRadius;
+    padding: 0.5rem 2rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    width: 60%;
+    margin: 0 auto;
+
+    &:hover {
+      background-color: rgba($primaryColor, 0.9);
     }
   }
 }

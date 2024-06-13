@@ -4,13 +4,14 @@ import { Hero } from './components/Hero';
 import { Services } from './components/Services';
 import { tabTitle } from '@/shared/utils/tabTitle';
 import { message } from 'antd';
-import { HOME } from '@/shared/services/api/Api';
 import { Loader } from '@/shared/components/Loader';
-import useFetch from '@/shared/hooks/useFetch';
+import useApi from '@/shared/hooks/useApi';
 
 export const Home = () => {
   const { t } = useTranslation();
   tabTitle(t('Home'));
+
+  const { VITE_HOME } = import.meta.env;
 
   const {
     isLoading,
@@ -18,7 +19,7 @@ export const Home = () => {
     error,
     data: res,
     isRefetching,
-  } = useFetch(HOME);
+  }: any = useApi.get(VITE_HOME);
 
   const data = res?.data;
   if (isError) message.error(error.message);
